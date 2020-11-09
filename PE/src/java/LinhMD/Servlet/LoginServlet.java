@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String url;
+        String url =  INVALID_PAGE;
         String username = request.getParameter("txtUsername");
         String password = request.getParameter("txtPassword");
         try {
@@ -46,8 +46,7 @@ public class LoginServlet extends HttpServlet {
             boolean checkLogin = userDAO.checkLogin(username, Integer.parseInt(password));
             if(checkLogin)
                 url = SHOW_ALL_PAGE;
-            else
-                url = INVALID_PAGE;
+            
         } catch (ClassNotFoundException | SQLException | NamingException ex) {
             log("LoginServlet: " +ex.getMessage());
         }finally{
