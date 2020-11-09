@@ -5,10 +5,12 @@
  */
 package LinhMD.dao;
 
+import java.io.Serializable;
+
 /**
  *
  * @author USER
  */
-public class Tbl_CulbDAO {
+public class Tbl_CulbDAO implements Serializable{
     
 }
