@@ -11,6 +11,6 @@ import java.io.Serializable;
  *
  * @author USER
  */
-public class Tbl_CulbDAO implements Serializable{
+public class Tbl_ClubDAO implements Serializable{
     
 }
