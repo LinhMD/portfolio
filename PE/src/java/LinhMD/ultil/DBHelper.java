@@ -9,6 +9,6 @@ package LinhMD.ultil;
  *
  * @author USER
  */
-public class DAHelper {
+public class DBHelper {
     
 }
