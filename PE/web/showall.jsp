@@ -13,5 +13,27 @@
     </head>
     <body>
         <h1>Show Clubs</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>No.</th>
+                    <th>Club name</th>
+                    <th>No of championship</th>
+                    <th>country</th>
+                    <th>Show Achievement</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+
     </body>
 </html>
