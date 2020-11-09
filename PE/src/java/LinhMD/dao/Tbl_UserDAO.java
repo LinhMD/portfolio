@@ -23,14 +23,12 @@ public class Tbl_UserDAO {
         String statement = "select userId, password form tbl_User where userId=?";
         PreparedStatement ps = null;
         c = DBHelpers.makeConnection();
-        ps = c.prepareStatement(statement); 
+        c.prepareStatement(statement);
         ps.setString(1, username);
         ResultSet rs = ps.executeQuery();
         if(rs.next()){
             return password == rs.getInt(password);
         }
-        
-        
         return false;
     }
 }
