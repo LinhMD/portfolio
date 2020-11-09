@@ -2,6 +2,8 @@
 <Context path="/PE"/>
 
 <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
-            name="SE1419DS" password="123456" 
+            name="SE1419DS" 
+            username="sa"
+            password="123456" 
             type="javax.sql.DataSource" 
             url="http:SQLServer://Localhost:1433;databaseName=PracticalTest"/>
