@@ -51,6 +51,7 @@ public class LoginServlet extends HttpServlet {
         } catch (ClassNotFoundException | SQLException | NamingException ex) {
             log("LoginServlet: " +ex.getMessage());
         }finally{
+            response.sendRedirect(url);
             out.close();
         }
     }
