@@ -109,6 +109,9 @@ public class FilterDispather implements Filter {
             }else{
                 url = resource +"Servlet";
             }
+            if(resource.trim().isEmpty()){
+                url = "login.html";
+            }
         }
         chain.doFilter(request, response);
         if(url != null){
