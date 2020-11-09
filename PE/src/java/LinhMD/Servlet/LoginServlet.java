@@ -49,7 +49,7 @@ public class LoginServlet extends HttpServlet {
             else
                 url = INVALID_PAGE;
         } catch (ClassNotFoundException | SQLException | NamingException ex) {
-            log("LoginServlet: " ex.getMessage());
+            log("LoginServlet: " +ex.getMessage());
         }finally{
             out.close();
         }
