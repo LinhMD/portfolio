@@ -12,9 +12,11 @@ import java.io.StringWriter;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  *
@@ -97,37 +99,24 @@ public class FilterDispather implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
-        
-        if (debug) {
-            log("FilterDispather:doFilter()");
-        }
-        
-        doBeforeProcessing(request, response);
-        
-        Throwable problem = null;
-        try {
-            chain.doFilter(request, response);
-        } catch (Throwable t) {
-            // If an exception is thrown somewhere down the filter chain,
-            // we still want to execute our after processing, and then
-            // rethrow the problem after that.
-            problem = t;
-            t.printStackTrace();
-        }
-        
-        doAfterProcessing(request, response);
-
-        // If there was a problem, we want to rethrow it if it is
-        // a known type, otherwise log it.
-        if (problem != null) {
-            if (problem instanceof ServletException) {
-                throw (ServletException) problem;
+        HttpServletRequest req = (HttpServletRequest) request;
+        String path = req.getRequestURI();
+        String url = null;
+        if(path != null){
+            String resource = path.substring(path.lastIndexOf("/") + 1);
+            if(resource.contains(".html") || resource.contains(".jsp")){
+                url = resource;
+            }else{
+                url = resource +"Servlet";
             }
-            if (problem instanceof IOException) {
-                throw (IOException) problem;
-            }
-            sendProcessingError(problem, response);
         }
+        chain.doFilter(request, response);
+        if(url != null){
+            RequestDispatcher rd = req.getRequestDispatcher(url);
+            rd.forward(request, response);
+        }
+        
+      
     }
 
     /**
