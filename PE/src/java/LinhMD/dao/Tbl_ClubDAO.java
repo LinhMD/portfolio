@@ -12,5 +12,5 @@ import java.io.Serializable;
  * @author USER
  */
 public class Tbl_ClubDAO implements Serializable{
-    public 
+   
 }

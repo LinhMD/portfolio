@@ -5,11 +5,13 @@
  */
 package LinhMD.clubdto;
 
+import java.io.Serializable;
+
 /**
  *
  * @author USER
  */
-public class Club {
+public class Club implements Serializable{
     private String id;
     private String clubName;
     private String noOFChampion;
