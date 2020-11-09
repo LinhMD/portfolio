@@ -117,7 +117,7 @@ public class FilterDispather implements Filter {
             RequestDispatcher rd = req.getRequestDispatcher(url);
             rd.forward(request, response);
         }
-        chain.doFilter(request, response);
+        
       
     }
 
