@@ -112,7 +112,7 @@ public class FilterDispather implements Filter {
             if(resource.trim().isEmpty())
                 url = "login.html";
         }
-        
+        chain.doFilter(request, response);
         if(url != null){
             RequestDispatcher rd = req.getRequestDispatcher(url);
             rd.forward(request, response);
