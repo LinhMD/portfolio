@@ -102,16 +102,15 @@ public class FilterDispather implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         String path = req.getRequestURI();
         String url = null;
-        if(path != null){
+        if(path != null ){
             String resource = path.substring(path.lastIndexOf("/") + 1);
             if(resource.contains(".html") || resource.contains(".jsp")){
                 url = resource;
             }else{
                 url = resource +"Servlet";
             }
-            if(resource.trim().isEmpty()){
+            if(resource.trim().isEmpty())
                 url = "login.html";
-            }
         }
         chain.doFilter(request, response);
         if(url != null){
