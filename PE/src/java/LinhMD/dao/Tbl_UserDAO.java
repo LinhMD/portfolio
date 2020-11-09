@@ -8,6 +8,7 @@ package LinhMD.dao;
 import LinhMD.ultil.DBHelpers;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.naming.NamingException;
@@ -21,11 +22,15 @@ public class Tbl_UserDAO {
         Connection c = null;
         String statement = "select userId, password form tbl_User where userId=?";
         PreparedStatement ps = null;
-        try{
-            c = DBHelpers.makeConnection();
-            c.prepareStatement(statement);
-            
-        } 
+        c = DBHelpers.makeConnection();
+        ps = c.prepareStatement(statement); 
+        ps.setString(1, username);
+        ResultSet rs = ps.executeQuery();
+        if(rs.next()){
+            return password == rs.getInt(password);
+        }
+        
+        
         return false;
     }
 }
