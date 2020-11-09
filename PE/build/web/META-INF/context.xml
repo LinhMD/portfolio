@@ -6,4 +6,4 @@
             username="sa"
             password="123456" 
             type="javax.sql.DataSource" 
-            url="http:SQLServer://Localhost:1433;databaseName=SQLServer"/>
+            url="http:sqlserver://Localhost:1433;databaseName=SQLServer"/>
