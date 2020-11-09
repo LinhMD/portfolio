@@ -2,7 +2,7 @@
 <Context path="/PE"/>
 
 <Resource auth="Container" driverClassName="com.microsoft.sqlserver.jdbc.SQLServerDriver" 
-            name="" 
+            name="PracticalTest" 
             username="sa"
             password="123456" 
             type="javax.sql.DataSource" 
