@@ -28,7 +28,7 @@ public class DBHelpers implements Serializable{
         //1.get current context
         Context context = new InitialContext();
         Context tomcatContext = (Context)context.lookup("java:comp/env");
-        DataSource da = (DataSource) tomcatContext.lookup("SE1419DS");
+        DataSource da = (DataSource) tomcatContext.lookup("PracticalTest");
         return da.getConnection();
         
     }
