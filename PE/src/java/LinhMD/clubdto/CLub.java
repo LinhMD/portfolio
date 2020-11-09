@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package LinhMD.dao;
-
-import java.io.Serializable;
+package LinhMD.clubdto;
 
 /**
  *
  * @author USER
  */
-public class Tbl_ClubDAO implements Serializable{
-    public 
+public class CLub {
+    
 }
