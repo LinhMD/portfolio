@@ -5,8 +5,13 @@
  */
 package LinhMD.Servlet;
 
+import LinhMD.dao.Tbl_UserDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.naming.NamingException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,6 +23,8 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class LoginServlet extends HttpServlet {
 
+    private final String SHOW_ALL_PAGE = "showall.jsp";
+    private final String INVALID_PAGE = "invalid.html";
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -31,10 +38,18 @@ public class LoginServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
+        String url;
         String username = request.getParameter("txtUsername");
         String password = request.getParameter("txtPassword");
         try {
-            
+            Tbl_UserDAO userDAO = new Tbl_UserDAO();
+            boolean checkLogin = userDAO.checkLogin(username, Integer.parseInt(password));
+            if(checkLogin)
+                url = SHOW_ALL_PAGE;
+            else
+                url = INVALID_PAGE;
+        } catch (ClassNotFoundException | SQLException | NamingException ex) {
+            log("LoginServlet: " ex.getMessage());
         }finally{
             out.close();
         }
