@@ -9,6 +9,6 @@ package LinhMD.clubdto;
  *
  * @author USER
  */
-public class CLub {
+public class Club {
     
 }
